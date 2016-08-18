@@ -53,4 +53,10 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  resources :articles
+
+  root "pages#home"
+
+  get '/about-us' => 'pages#about_us', as: :about_us
+  get '/contact-us' => 'pages#contact_us', as: :contact_us
 end

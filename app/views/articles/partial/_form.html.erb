@@ -1,0 +1,28 @@
+<%= form_for @article, :html => {class: "col-lg-offset-2 col-lg-8", role: "form"} do |f| %>
+	<% if @article.errors.any? %>
+		<div class="alert alert-danger" role="alert">
+			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+			<%= pluralize(@article.errors.count, 'error') %> preventing to save article
+			<% @article.errors.full_messages.each do |msg| %><br/>
+				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				<span><%= msg %></span>
+			<% end %>
+		</div>
+	<% end %>
+
+
+	<div class="row">
+		<div class="form-group col-lg-12">
+			<%= f.label :Title %>
+			<%= f.text_field :title, class: "form-control col-lg-12" %>
+		</div>
+		<div class="clearfix"></div>
+		<div class="form-group col-lg-12">
+			<%= f.label :Body %>
+			<%= f.text_area :body, class: "form-control", rows: "6" %>
+		</div>
+		<div class="form-group col-lg-12">
+			<%= f.submit :submit, class: "btn btn-default" %>
+		</div>
+	</div>
+<% end %>
